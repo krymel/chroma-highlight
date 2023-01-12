@@ -8,14 +8,12 @@ import https = require('https');
 import child_process = require('child_process');
 import { dirname, join } from 'path';
 
-const toPath = path.join(__dirname, 'bin', 'chroma');
+let binPath = path.join(__dirname, 'bin', 'chroma');
 
-function validateBinaryVersion(...command: string[]): void {
-  command.push('--version');
+function validateBinaryVersion(binPath: string): void {
   let stdout: string;
   try {
-    command.shift()!
-    stdout = child_process.execFileSync(command.shift()!, command, {
+    stdout = child_process.execSync(`${binPath} --version`, {
       stdio: 'pipe',
     }).toString().trim();
   } catch (err) {
@@ -77,10 +75,8 @@ function extractFileFromTarGzip(buffer: Buffer, subpath: string): Buffer {
 }
 
 async function downloadDirectlyFromGithub(pkgUrl: string, subpath: string): Promise<void> {
-  // If that fails, the user could have npm configured incorrectly or could not
-  // have npm installed. Try downloading directly from npm as a last resort.
 
-  const targetBinPath = join(__dirname, 'bin', subpath)
+  const targetBinPath = binPath = join(__dirname, 'bin', subpath)
 
   try {
   fs.mkdirSync(dirname(targetBinPath), { recursive: true })
@@ -106,5 +102,5 @@ async function checkAndPreparePackage(): Promise<void> {
 }
 
 checkAndPreparePackage().then(() => {
-  validateBinaryVersion(process.execPath, toPath);
+  validateBinaryVersion(binPath);
 });
