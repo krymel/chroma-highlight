@@ -1,6 +1,6 @@
 {
     "name": "chroma-highlight",
-    "version": "2.4.0",
+    "version": "2.4.1",
     "description": "A general purpose syntax highlighter in pure Go. Wrapped for Node.js",
     "repository": "https://github.com/krymel/chroma-highlight",
     "scripts": {
