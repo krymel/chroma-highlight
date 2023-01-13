@@ -1,6 +1,6 @@
 {
     "name": "chroma-highlight",
-    "version": "2.4.0-alpha.1",
+    "version": "2.4.0",
     "description": "A general purpose syntax highlighter in pure Go. Wrapped for Node.js",
     "repository": "https://github.com/krymel/chroma-highlight",
     "scripts": {
@@ -10,9 +10,19 @@
         "pretest": "yarn build && cp -R bin dist/",
         "test": "node test/index.js && node test/index.mjs",
         "prebuild": "yarn clean",
-        "postbuild": "cp package.json README.md COPYING dist/",
-        "postinstall": "ts-node install.ts"
+        "postbuild": "cp install.ts platform.ts tsconfig.json package.json README.md COPYING dist/",
+        "postinstall": "ts-node install.ts",
+        "release": "cd dist && npm publish"
     },
+    "files": [
+        "index.*",
+        "COPYING",
+        "package.json",
+        "README.md",
+        "install.ts",
+        "platform.ts",
+        "tsconfig.json"
+    ],
     "types": "index.d.ts",
     "exports": {
         ".": {
