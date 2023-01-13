@@ -38,6 +38,32 @@ const formattedSyntaxAsHTML = highlight(`
 const { highlight } = require("chroma-highlight")
 ```
 
+### Speed
+
+This library formats a snippet like the above in around `~13ms` all-in.
+Most of the time is spent for the executable invocation and wrapping layer.
+
+<img src="speed.png" />
+
+### Size
+
+The pure JS library size (without the binary that is never bundled-in) is around `~470 byte` gzipped.
+
+<img src="size.png" />
+
+### Capabilities
+
+In contrst to all JavaScript based highlighting libraries, `chroma` is able to
+format and style a vertical mixed-mode snippet like the above correctly and deal with
+incorrect syntax such as non-closed tags intelligently. Thus, it's perfectly suited for
+highlighting syntax error reports and such.
+
+<img src="capabilities.png" />
+
+
+
+
+
 
 
 

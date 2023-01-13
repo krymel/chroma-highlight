@@ -18,7 +18,7 @@ const result = highlight(`
   98 |         <MDXFun components={{h2: CustomH2}} />
 `, `--formatter html --lexer typescript --style monokailight`)
 
-console.timeEnd('highlighting | invariant CJS')
+//console.timeEnd('highlighting | invariant CJS')
 
 assert(result)
 assert(result === readFileSync(resolve('test/result.html'), { encoding: 'utf-8'}))
