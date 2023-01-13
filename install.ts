@@ -23,12 +23,11 @@ function validateBinaryVersion(binPath: string): void {
         os = 'macOS ' + child_process.execFileSync('sw_vers', ['-productVersion']).toString().trim();
       } catch {
       }
-      throw new Error(`The "chroma-hl" package cannot be installed because ${os} is too outdated.
-The Go compiler (which esbuild relies on) no longer supports ${os},
-which means the "esbuild" binary executable can't be run. You can either:
+      throw new Error(`The "chroma" binary cannot be installed because ${os} is too outdated.
+The Go compiler (which chroma relies on) no longer supports ${os},
+which means the "chroma" binary executable can't be run. You can either:
   * Update your version of macOS to one that the Go compiler supports
-  * Use the "esbuild-wasm" package instead of the "esbuild" package
-  * Build esbuild yourself using an older version of the Go compiler
+  * Build chroma yourself using an older version of the Go compiler
 `);
     }
     throw err;

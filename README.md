@@ -10,7 +10,7 @@ The current binary version of `chroma` used is the latest, released in Nov 2022,
 
 This is just a wrapper package for Node.js. Chroma (upstream) is maintained by [@alecthomas](https://github.com/alecthomas).
 
-> Please report bugs here whenever the root-cause of an issue seems to lie within Node.js/the wrapper/integration layer or binary download/install script.
+> Please report bugs here whenever the root-cause of an issue seems to be within Node.js/the wrapper/integration layer or binary download/install script.
 
 ## Try it
 
@@ -91,7 +91,7 @@ const { highlight } = require("chroma-highlight")
 ### Speed
 
 This library formats a snippet like the above in around `~13ms` all-in.
-Most of the time is spent for the executable invocation and wrapping layer.
+In case of such a small input, most of the time seems to be spent on the executable invocation and wrapping layer. Still, `chroma` is about `10-20x` faster than comparable JavaScript based solutions.
 
 <img src="speed.png" />
 
@@ -103,7 +103,7 @@ The pure JS library size (without the binary that is never bundled-in) is around
 
 ### Capabilities
 
-In contrst to all JavaScript based highlighting libraries, `chroma` is able to
+In contrast to all JavaScript based highlighting libraries, `chroma` is able to
 format and style a vertical mixed-mode snippet like the above correctly and deal with
 incorrect syntax such as non-closed tags intelligently. Thus, it's perfectly suited for
 highlighting syntax error reports and such.
