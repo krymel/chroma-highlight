@@ -15,6 +15,7 @@
         "release": "cd dist && npm publish"
     },
     "files": [
+        "*.png",
         "index.*",
         "COPYING",
         "package.json",

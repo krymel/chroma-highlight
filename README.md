@@ -1,3 +1,5 @@
+<a href="https://www.npmjs.com/package/chroma-highlight"><img src="https://img.shields.io/npm/v/chroma-highlight" /></a>
+
 # chroma-highlight
 
 This package makes [`chroma`](https://github.com/alecthomas/chroma), a general purpose syntax highlighter in pure Go, available for Node.js.
